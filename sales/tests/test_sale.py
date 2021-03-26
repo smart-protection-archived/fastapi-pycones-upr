@@ -21,7 +21,7 @@ class TestCreateSale(TestCase):
         }
 
         response = self.client.post('/sale/', json=sale)
-        self.assertEqual(response.status_code, 204)
+        self.assertEqual(response.status_code, 200)
 
         car = car_repository.find_by_id(123)
 

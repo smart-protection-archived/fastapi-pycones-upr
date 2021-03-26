@@ -1,4 +1,5 @@
 import abc
+from typing import List
 
 from sales.domain.aggregates.car import Car
 from sales.domain.frame_id import FrameId
@@ -6,6 +7,10 @@ from sales.domain.repositories.repository import Repository
 
 
 class CarRepository(Repository):
+
+    @abc.abstractmethod
+    def all(self) -> List[Car]:
+        pass
 
     @abc.abstractmethod
     def find_by_id(self, id: FrameId) -> Car:

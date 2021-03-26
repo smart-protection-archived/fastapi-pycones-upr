@@ -36,9 +36,9 @@ class Car(Aggregate):
 
     def sell(self, customer: CustomerId, prize: Money):
         if self._state == CarState.SOLD.value:
-            raise CarAlreadySoldException('car is already sold')
-
-        self._owner = customer
-        self._sold_date = datetime.now()
+            raise CarAlreadySoldException()
         self._state = CarState.SOLD.value
+        self._owner = customer
         self._prize = prize
+        self._sold_date = datetime.now()
+
